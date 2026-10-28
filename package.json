@@ -1,0 +1,14 @@
+{
+  "name": "accessibility-platform",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "start": "node apps/api/src/server.js",
+    "test": "node --test tests/unit/*.test.mjs tests/integration/*.test.mjs",
+    "install-check": "node tests/e2e/install-check.mjs",
+    "build:widget": "node packages/widget-core/build.mjs",
+    "build:dashboard": "npm --prefix apps/dashboard run build"
+  }
+}

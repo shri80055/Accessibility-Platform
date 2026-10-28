@@ -1,0 +1,6 @@
+node_modules/
+data/
+.env
+apps/dashboard/dist/
+apps/api/public/widget/
+*.log

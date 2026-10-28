@@ -1,0 +1,28 @@
+// Prisma schema — production (PostgreSQL). Mirrors migrations/001_init.sql.
+// datasource db { provider = "postgresql"; url = env("DATABASE_URL") }
+// generator client { provider = "prisma-client-js" }
+// Models map 1:1 to the tables above: User, Session, Site, SiteConfig,
+// Release, Audit, Diagnostic, AuditLog. Field names use camelCase in Prisma
+// and snake_case in SQL; the demo API uses the SQL names directly.
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  name         String   @default("")
+  role         String
+  createdAt    DateTime @default(now()) @map("created_at")
+  @@map("users")
+}
+model Site {
+  id               String   @id @default(uuid())
+  publicId         String   @unique @map("public_id")
+  name             String
+  baseDomain       String   @map("base_domain")
+  allowedHostnames Json     @map("allowed_hostnames")
+  enabled          Boolean  @default(true)
+  verified         Boolean  @default(false)
+  verificationToken String  @map("verification_token")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+  @@map("sites")
+}

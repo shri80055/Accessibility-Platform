@@ -1,0 +1,4 @@
+-- Seed is performed by the API on first run (hashed password, env-driven).
+-- This file documents the intended row only; DO NOT insert a plaintext password.
+-- INSERT INTO users (email, password_hash, name, role) VALUES
+--   ('admin@accessibility.local', '<scrypt hash from ADMIN_PASSWORD>', 'Platform Admin', 'super_admin');

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Public Services Portal (Accessibility Widget Demo)</title>
+<style>
+  :root{--navy:#0a2540;--blue:#1d4ed8;--indigo:#4f46e5;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--bg:#f1f5f9}
+  *{box-sizing:border-box} body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;color:var(--ink);line-height:1.6;background:var(--bg)}
+  a{color:var(--blue)} a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+  .skip{position:absolute;left:-9999px;background:#fff;padding:.75rem 1rem;border-radius:8px;z-index:10}.skip:focus{left:1rem;top:1rem}
+  header{background:linear-gradient(135deg,var(--navy),#1e3a8a 55%,var(--indigo));color:#fff}
+  .topbar{max-width:1100px;margin:0 auto;padding:1.1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:.75rem}.brand-mark{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid rgba(255,255,255,.3)}
+  .brand h1{font-size:1.25rem;margin:0;line-height:1.2;letter-spacing:-.01em}.brand p{margin:0;font-size:.8rem;color:#c7d2fe}
+  nav a{color:#fff;text-decoration:none;font-weight:600;margin-left:1.25rem} nav a:hover{text-decoration:underline}
+  .hero{max-width:1100px;margin:0 auto;padding:2.5rem 1.5rem 2rem}.hero h2{font-size:2rem;line-height:1.15;margin:0 0 .5rem;letter-spacing:-.02em}.hero p{color:#dbeafe;max-width:640px;margin:0}
+  main{max-width:1100px;margin:0 auto;padding:1.5rem}
+  .notice{background:#fffbeb;border:1px solid #fcd34d;border-radius:16px;padding:1.1rem 1.25rem;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.5rem 0}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.25rem;box-shadow:0 1px 3px rgba(15,23,42,.06)}
+  .card h3{margin:.25rem 0 .5rem}.card p{color:var(--muted);margin:0}.card .num{font-size:1.6rem;font-weight:800;color:var(--navy)}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:1.5rem;box-shadow:0 1px 3px rgba(15,23,42,.06);margin:1.5rem 0}
+  table{border-collapse:collapse;width:100%} th,td{border-bottom:1px solid var(--line);padding:.7rem;text-align:left} th{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  label{display:block;margin-top:.9rem;font-weight:600} input,select{padding:.7rem .9rem;width:100%;max-width:460px;border:1px solid #cbd5e1;border-radius:12px;background:#fff;font:inherit;margin-top:.35rem}
+  .btn{margin-top:1.25rem;padding:.8rem 1.6rem;border:0;border-radius:999px;background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(29,78,216,.3)}
+  footer{max-width:1100px;margin:0 auto;padding:1.5rem;color:var(--muted);font-size:.85rem}
+  @media(max-width:640px){.hero h2{font-size:1.6rem} nav a{margin-left:.75rem}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<!-- THE ONLY WIDGET INTEGRATION: one script tag. No widget code, no npm package,
+     no framework change. Config changes published in the dashboard appear here
+     on reload — this file is never edited for a config change. -->
+<script src="/widget/v1/loader.js" data-site-id="site_af76504daaa0694d" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <div class="topbar">
+    <div class="brand"><div class="brand-mark" aria-hidden="true">🏛️</div><div><h1>Public Services Portal</h1><p>Government services · Demo site</p></div></div>
+    <nav aria-label="Main"><a href="#services">Services</a><a href="#apply">Apply</a><a href="#status">Status</a></nav>
+  </div>
+  <div class="hero">
+    <h2>Services for citizens, made easier to use.</h2>
+    <p>Apply for certificates, track applications, and read guidance — with presentation, keyboard and reading controls from the floating accessibility button.</p>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <p class="notice"><strong>Try it:</strong> use the floating accessibility button to change text size, contrast, spacing, focus highlighting, reading aids, profiles and language. Your preferences persist in this browser. Then change the configuration in the dashboard, Publish, and reload this page — the button and panel update without any change to this file.</p>
+  <div class="grid" aria-label="At a glance">
+    <div class="card"><p class="num">3</p><h3>Certificate services</h3><p>Land record, income and domicile certificates.</p></div>
+    <div class="card"><p class="num">5 days</p><h3>Typical processing</h3><p>Keep your application number safe.</p></div>
+    <div class="card"><p class="num">13</p><h3>Widget languages</h3><p>Interface language framework, including Hindi and Marathi.</p></div>
+  </div>
+  <h2 id="services">Services for citizens</h2>
+  <p>Welcome to this demonstration portal. It shows how a government-style website can offer presentation and reading controls to visitors without rebuilding the website itself. The controls below are ordinary page content — the widget does not rewrite them.</p>
+  <p>Find <a href="#apply">application forms</a>, check <a href="#status">application status</a>, and read the <a href="#services">service guide</a> in your preferred presentation.</p>
+  <div class="card">
+    <h3>Land record certificate</h3>
+    <p>Apply for a certified copy of a land record. Processing usually takes five working days. Keep your application number safe.</p>
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='120'%3E%3Crect width='400' height='120' rx='16' fill='%23dbeafe'/%3E%3Ctext x='20' y='65' font-size='20'%3EDemo illustration: office building%3C/text%3E%3C/svg%3E" alt="Illustration of a government office building (demo image)" style="margin-top:1rem;border-radius:12px;max-width:100%">
+  </div>
+  <section class="panel" aria-labelledby="apply">
+    <h2 id="apply">Apply online</h2>
+    <form>
+      <label for="fullname">Full name</label><input id="fullname" name="fullname" type="text" autocomplete="name">
+      <label for="service">Service</label>
+      <select id="service" name="service"><option>Land record certificate</option><option>Income certificate</option><option>Domicile certificate</option></select>
+      <button class="btn" type="submit">Submit application (demo — does not submit)</button>
+    </form>
+  </section>
+  <section class="panel" aria-labelledby="status">
+    <h2 id="status">Application status</h2>
+    <table>
+      <caption>Sample applications (demo data)</caption>
+      <thead><tr><th scope="col">Application</th><th scope="col">Service</th><th scope="col">Status</th></tr></thead>
+      <tbody><tr><td>APP-1001</td><td>Land record</td><td>Under review</td></tr><tr><td>APP-1002</td><td>Income certificate</td><td>Approved</td></tr></tbody>
+    </table>
+  </section>
+  <h3>What this widget does not do</h3>
+  <p>It does not translate this page, repair missing descriptions, or certify this site as compliant. Those remain the responsibility of the site owner, its content editors, and manual accessibility evaluation.</p>
+</main>
+<footer>Demo site only — sample data, no real applications are processed here.</footer>
+</body>
+</html>
